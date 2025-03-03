@@ -75,9 +75,9 @@ d = &b;                 // 不允许：d 是常量指针，不能指向其他地
        如配置文件、硬件寄存器等需要保护的数据。
        
        ```cpp
-  const char* config_file = "settings.conf";  // 配置文件内容不可修改
+       const char* config_file = "settings.conf";  // 配置文件内容不可修改
        ```
-     
+
    - **关键优势**：  
      即使指针指向的是「非常量」数据（如 `int x = 5; const int* p = &x;`），通过 `p` 也无法修改 `x`。这可以强制约束代码行为，避免误操作。
 
@@ -121,8 +121,7 @@ d = &b;                 // 不允许：d 是常量指针，不能指向其他地
        ```cpp
        const volatile uint32_t* const READ_ONLY_REG = (uint32_t*)0x40000000;
        uint32_t value = *READ_ONLY_REG;  // ✅ 仅读取
-  ```
-     
+       ```
    - **关键优势**：  
      提供最高级别的保护，适用于需要严格约束的场景。
 
